@@ -1,9 +1,9 @@
+import { ContentContainerComponent } from '@/components/content-container/content-container.component';
+import { HeaderComponent } from '@/components/header/header.component';
+import { CalculatorService } from '@/services/calculator/service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ContentContainerComponent } from '../../../components/content-container/content-container.component';
-import { HeaderComponent } from '../../../components/header/header.component';
-import { CalculatorService } from '../../../services/calculator/service';
 
 @Component({
   selector: 'app-home',

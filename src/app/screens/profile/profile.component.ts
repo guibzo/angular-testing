@@ -1,3 +1,8 @@
+import { ContentContainerComponent } from '@/components/content-container/content-container.component';
+import { HeaderComponent } from '@/components/header/header.component';
+import { ReversePipe } from '@/pipes/reverse/pipe';
+import { CarService } from '@/services/car/service';
+import { GetUserService } from '@/services/get-user/service';
 import { DecimalPipe, UpperCasePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
@@ -8,11 +13,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ContentContainerComponent } from '../../../components/content-container/content-container.component';
-import { HeaderComponent } from '../../../components/header/header.component';
-import { ReversePipe } from '../../../pipes/reverse/pipe';
-import { CarService } from '../../../services/car/service';
-import { GetUserService } from '../../../services/get-user/service';
 
 @Component({
   selector: 'app-profile',
