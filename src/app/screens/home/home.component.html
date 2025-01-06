@@ -1,9 +1,9 @@
-<main class="flex flex-col gap-5">
-  <app-header
-    (incrementCountEvent)="printEvent($event)"
-    [isAuthenticated]="false"
-  />
+<app-header
+  (incrementCountEvent)="printEvent($event)"
+  [isAuthenticated]="false"
+/>
 
+<app-content-container>
   <h1 class="text-red-500">Hello {{ title }}</h1>
   <span>Name do computed/signal: {{ firstNameCapitalized() }}</span>
 
@@ -39,29 +39,36 @@
     >Valor da soma do service injetado: {{ totalCost }}</span
   >
 
-  <div [ngClass]="{ 'text-white bg-black': age > 30, 'text-black': age < 30 }">dynamic class binding, age: {{ age }}</div>
+  <div [ngClass]="{ 'text-white bg-black': age > 30, 'text-black': age < 30 }">
+    dynamic class binding, age: {{ age }}
+  </div>
 
   <div class="flex items-center gap-8">
     <div class="size-[200px] relative">
       <img [ngSrc]="avatarURL" alt="Avatar" fill priority />
     </div>
-  
-    <img [ngSrc]="avatarURL" alt="Avatar" width="64" height='64' />
+
+    <img [ngSrc]="avatarURL" alt="Avatar" width="64" height="64" />
   </div>
 
-  <button class="rounded-md p-2 bg-blue-500 text-white hover:bg-blue-600 transition-all mt-8 w-fit">
+  <button
+    class="rounded-md p-2 bg-blue-500 text-white hover:bg-blue-600 transition-all mt-8 w-fit"
+  >
     <a routerLink="/profile">Ir pro profile</a>
   </button>
 
   <div class="mt-[1000px]">a</div>
 
   @defer (on viewport) {
-    <article>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsum voluptas quam, explicabo eos illum officiis omnis libero asperiores. Rem assumenda cum voluptates minima accusamus quis explicabo, iusto vitae nesciunt.
-    </article>
+  <article>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsum
+    voluptas quam, explicabo eos illum officiis omnis libero asperiores. Rem
+    assumenda cum voluptates minima accusamus quis explicabo, iusto vitae
+    nesciunt.
+  </article>
   } @placeholder {
-    <div class="animate-pulse text-emerald-400 text-lg">Placeholder...</div>
+  <div class="animate-pulse text-emerald-400 text-lg">Placeholder...</div>
   } @loading (minimum 2s) {
-    <div class="animate-pulse text-pink-400 text-lg">Loading...</div>
+  <div class="animate-pulse text-pink-400 text-lg">Loading...</div>
   }
-</main>
+</app-content-container>

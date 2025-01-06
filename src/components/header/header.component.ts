@@ -7,11 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() private incrementCountEvent = new EventEmitter<number>();
-  @Input()
-  public isAuthenticated = true;
-  public count = 0;
+  @Input() isAuthenticated = true;
+  count = 0;
 
-  public onClick() {
+  onClick() {
     this.count++;
     this.incrementCountEvent.emit(this.count);
   }
