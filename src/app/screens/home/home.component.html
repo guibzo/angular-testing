@@ -1,74 +1,67 @@
-<app-header
-  (incrementCountEvent)="printEvent($event)"
-  [isAuthenticated]="false"
-/>
+<app-header (incrementCountEvent)="printEvent($event)" [isAuthenticated]="false" />
 
 <app-content-container>
-  <h1 class="text-red-500">Hello {{ title }}</h1>
-  <span>Name do computed/signal: {{ firstNameCapitalized() }}</span>
+	<h1 class="text-red-500">Hello {{ title }}</h1>
+	<span>Name do computed/signal: {{ firstNameCapitalized() }}</span>
+	<span>Age: {{ age }}</span>
 
-  <form>
-    <button
-      class="p-2 rounded-md bg-blue-500 text-white"
-      type="submit"
-      (click)="sendForm($event)"
-    >
-      Set Name loga o submit
-    </button>
-  </form>
+	<form>
+		<button class="p-2 rounded-md bg-blue-500 text-white" type="submit" (click)="sendForm($event)">
+			Set Name loga o submit
+		</button>
+	</form>
 
-  @if(true) {
-  <span class="text-emerald-500">ta true hein: IF</span>
-  }
+	@if(true) {
+	<span class="text-emerald-500">ta true hein: IF</span>
+	}
 
-  <p>headerCount do eventEmitter callback: {{ headerCount() }}</p>
+	<p>headerCount do eventEmitter callback: {{ headerCount() }}</p>
 
-  <ul class="flex items-center gap-2">
-    @for(item of items; track item.id) { @if($first) {
-    <span class="text-xl text-pink-500">
-      item do loop: {{ item.name }} {{ $index }}
-    </span>
-    } @else {
-    <span class="text-xl text-orange-500">
-      item do loop: {{ item.name }} {{ $index }}
-    </span>
-    }}
-  </ul>
+	<ul class="flex items-center gap-2">
+		@for(item of items; track item.id) { @if($first) {
+		<span class="text-xl text-pink-500"> item do loop: {{ item.name }} {{ $index }} </span>
+		} @else {
+		<span class="text-xl text-orange-500"> item do loop: {{ item.name }} {{ $index }} </span>
+		}}
+	</ul>
 
-  <span class="text-lg"
-    >Valor da soma do service injetado: {{ totalCost }}</span
-  >
+	<span class="text-lg">Valor da soma do service injetado: {{ totalCost }}</span>
 
-  <div [ngClass]="{ 'text-white bg-black': age > 30, 'text-black': age < 30 }">
-    dynamic class binding, age: {{ age }}
-  </div>
+	<button
+		(click)="handleChangeButtonVariant()"
+		[class]="
+			cn(
+				'rounded-md p-2 bg-blue-500 w-fit text-white border-transparent border',
+				isOutlineVariant() && 'bg-transparent border-blue-500 border text-black'
+			)
+		"
+	>
+		Click me to see clsx + dynamic classes
+	</button>
 
-  <div class="flex items-center gap-8">
-    <div class="size-[200px] relative">
-      <img [ngSrc]="avatarURL" alt="Avatar" fill priority />
-    </div>
+	<div class="flex items-center gap-8">
+		<div class="size-[200px] relative">
+			<img [ngSrc]="avatarURL" alt="Avatar" fill priority />
+		</div>
 
-    <img [ngSrc]="avatarURL" alt="Avatar" width="64" height="64" />
-  </div>
+		<img [ngSrc]="avatarURL" alt="Avatar" width="64" height="64" />
+	</div>
 
-  <button
-    class="rounded-md p-2 bg-blue-500 text-white hover:bg-blue-600 transition-all mt-8 w-fit"
-  >
-    <a routerLink="/profile">Ir pro profile</a>
-  </button>
+	<button class="rounded-md p-2 bg-blue-500 text-white hover:bg-blue-600 transition-all mt-8 w-fit">
+		<a routerLink="/profile">Ir pro profile</a>
+	</button>
 
-  <div class="mt-[1000px]">a</div>
+	<div class="mt-[1000px]">a</div>
 
-  @defer (on viewport) {
-  <article>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsum
-    voluptas quam, explicabo eos illum officiis omnis libero asperiores. Rem
-    assumenda cum voluptates minima accusamus quis explicabo, iusto vitae
-    nesciunt.
-  </article>
-  } @placeholder {
-  <div class="animate-pulse text-emerald-400 text-lg">Placeholder...</div>
-  } @loading (minimum 2s) {
-  <div class="animate-pulse text-pink-400 text-lg">Loading...</div>
-  }
+	@defer (on viewport) {
+	<article>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsum voluptas quam,
+		explicabo eos illum officiis omnis libero asperiores. Rem assumenda cum voluptates minima
+		accusamus quis explicabo, iusto vitae nesciunt.
+	</article>
+	} @placeholder {
+	<div class="animate-pulse text-emerald-400 text-lg">Placeholder...</div>
+	} @loading (minimum 2s) {
+	<div class="animate-pulse text-pink-400 text-lg">Loading...</div>
+	}
 </app-content-container>
